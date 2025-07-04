@@ -60,11 +60,11 @@
 
             const antwort = await response.text();
             console.log(antwort);
-            // if (antwort == 'ok') {
-            //     RegForm.innerHTML = "Erfolgreich abgesendet.";
-            // } else {
-            //     document.querySelector('#fehler').innerHTML = "Fehler: " + antwort;
-            // }
+            if (antwort == 'ok') {
+                RegForm.innerHTML = "Erfolgreich abgesendet.";
+            } else {
+                document.querySelector('#fehler').innerHTML = "Fehler: " + antwort;
+            }
         }
 
         const RegForm = document.querySelector('form');
