@@ -1,3 +1,9 @@
+<?php
+require_once 'config/config.db.php';
+require_once 'config/lib.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,6 +45,10 @@
     </form>
 
     <div id="fehler"></div>
+
+    <?php
+        register($name, $tel, $pwd, $description);
+    ?>
 
     <script>
         // 1. Formular abfangen, Absendeprozess abbrechen
