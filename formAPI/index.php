@@ -30,7 +30,7 @@ require_once 'config/lib.php';
 
     <form id="form" method="POST">
         <label for="name">Name
-            <input type="text" value="Geri" name="frm_name" id="name">
+            <input type="text" name="frm_name" id="name">
         </label>
         <label for="tel">Telefonnumer
             <input type="tel" name="frm_tel" id="tel">
@@ -47,7 +47,7 @@ require_once 'config/lib.php';
     <div id="fehler"></div>
 
     <?php
-        register($name, $tel, $pwd, $description);
+    register($name, $tel, $pwd, $description);
     ?>
 
     <script>
@@ -62,13 +62,14 @@ require_once 'config/lib.php';
 
             var formData = new FormData(RegForm);
             console.log(Object.fromEntries(formData.entries()));
+
             const response = await fetch("api.php", {
                 method: "post",
                 body: formData,
                 accept: "application/json"
             });
 
-            const antwort = await response.text();
+            const antwort = await response.json();
             console.log(antwort);
             if (antwort == 'ok') {
                 RegForm.innerHTML = "Erfolgreich abgesendet.";

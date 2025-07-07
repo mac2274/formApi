@@ -1,4 +1,6 @@
 <?php
+require_once 'config/config.db.php';
+
 $name = $_POST['frm_name'];
 $tel = $_POST['frm_tel'];
 $pwd = $_POST['frm_pwd']; 
