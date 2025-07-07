@@ -1,7 +1,4 @@
 <?php
-
-print_r($_POST);
-
 if (empty($_POST['frm_tel'])) {
     echo 'Keine Telefonnumer angegeben.';
     //echo 'Das Passwort fehlt.';

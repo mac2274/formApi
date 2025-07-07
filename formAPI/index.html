@@ -55,7 +55,7 @@
             console.log(Object.fromEntries(formData.entries()));
             const response = await fetch("api.php", {
                 method: "post",
-                body: "formData"
+                body: formData
             });
 
             const antwort = await response.text();
