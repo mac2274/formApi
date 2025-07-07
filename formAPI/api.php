@@ -43,7 +43,10 @@ if (empty($_POST['frm_tel'])) {
 } else {
     $response = [
         'status' => 'ok',
-        'message' => 'Daten erfolgreich gespeichert.'
+        'message' => [
+            "erfolg" => 'Daten erfolgreich gespeichert.',
+            'data' => $_POST['frm_tel']
+        ]
     ];
     http_response_code(200); // Internal Server Error
 }
