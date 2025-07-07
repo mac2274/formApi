@@ -60,7 +60,6 @@ require_once 'config/lib.php';
             event.preventDefault();
             //console.log("test2");
 
-
             var formData = new FormData(RegForm);
             console.log(Object.fromEntries(formData.entries()));
             const response = await fetch("api.php", {
@@ -74,7 +73,7 @@ require_once 'config/lib.php';
             if (antwort == 'ok') {
                 RegForm.innerHTML = "Erfolgreich abgesendet.";
             } else {
-                document.querySelector('#fehler').innerHTML = "Fehler: " + antwort;
+                document.querySelector('#fehler').innerHTML = "Ergebnis: " + antwort;
             }
         }
 
