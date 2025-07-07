@@ -1,28 +1,16 @@
 <?php
 require_once 'config/config.db.php';
-require_once 'config/lib.php';
 
-header('Content-Type: application/json; charset=utf-8');
-
-$response = [];
-
-if (empty($_POST['frm_tel'])) {
-    $response = [
-        'status' => 'error',
-        'message' => 'Keine Telefonnumer angegeben.'
-    ];
-    http_response_code(400); // bad request
-} else {
-    $response = [
-        'status' => 'ok',
-        'message' => [
-            "Erfolg" => 'Daten erfolgreich gespeichert.',
-            'data' => $_POST['frm_tel']
-        ]
-    ];
-    http_response_code(200);
+global $mysqli;
+$sql = "INSERT INTO registrations SET name=?, tel=?, pwd=?, description=? ";
+$stmt = $mysqli->prepare($sql);
+if (!$stmt) {
+    throw new Exception($mysqli->error);
+}
+$stmt->bind_param('siss', $_POST['frm_name'], $_POST['frm_tel'], $_POST['frm_pwd'], $_POST['frm_descript']);
+if (!$stmt->execute()){
+    throw new Exception($stmt->error);
 }
 
-// echo json_encode($response);
 
-register($name, $tel, $pwd, $description);
+return $stmt->affected_rows;

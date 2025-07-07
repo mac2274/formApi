@@ -4,6 +4,7 @@ require_once 'config/config.db.php';
 $name = $_POST['frm_name'];
 $tel = $_POST['frm_tel'];
 $pwd = $_POST['frm_pwd']; 
+$hashed = password_hash($pwd, PASSWORD_DEFAULT);
 $description = $_POST['frm_descript'];
 
 function register($name, $tel, $pwd, $description){

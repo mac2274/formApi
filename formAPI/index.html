@@ -61,10 +61,10 @@
 
             const antwort = await response.json();
             console.log(antwort);
-            if (antwort == 'ok') {
+            if (antwort.status == 'ok') {
                 RegForm.innerHTML = "Erfolgreich abgesendet.";
             } else {
-                document.querySelector('#fehler').innerHTML = "Ergebnis: " + antwort;
+                document.querySelector('#fehler').innerHTML = "Ergebnis: " + antwort.message;
             }
         }
 
