@@ -43,7 +43,7 @@
         }
 
         body {
-            background: #94BBE9;
+            background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
         }
 
         h1 {
@@ -65,7 +65,7 @@
             -webkit-box-shadow: 10px 10px 98px -16px rgba(0, 0, 0, 0.09) inset;
             -moz-box-shadow: 10px 10px 98px -16px rgba(0, 0, 0, 0.09) inset;
             background: #EEAECA;
-            background: linear-gradient(222deg, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+            background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%)
         }
 
         #inputButton{
