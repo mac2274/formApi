@@ -13,7 +13,7 @@
 
     <form method="GET">
         <label for="title">Title</label>
-        <input type="text" name="t" id="title" required>
+        <input type="text" name="s" id="title" required>
         <label for="type">Type</label>
         <input type="text" name="type" id="type">
         <label for="year">Jahr</label>
@@ -24,9 +24,14 @@
     </form>
 
     <script>
-        async function getData(event) {
+        let Data = document.querySelector('form')
+        Data.addEventListener('submit', getMovie);
+
+        async function getMovie(event) {
             event.preventDefault();
-            const url = "http://www.omdbapi.com/?i=tt3896198&apikey=4dfa07d8";
+
+            let formData = new FormData(Data)
+            const url = "http://www.omdbapi.com/?apikey=4dfa07d8&";
             try {
                 const response = await fetch(url);
                 if (!response.ok) {
@@ -38,7 +43,11 @@
             } catch (error) {
                 console.error(error.message);
             }
+            
         }
+
+
+
 
     </script>
 </body>
