@@ -59,12 +59,12 @@
                 accept: "application/json"
             });
 
-            const antwort = await response.json();
+            let antwort = response.text();
             console.log(antwort);
             if (antwort.status == 'ok') {
                 RegForm.innerHTML = "Erfolgreich abgesendet.";
             } else {
-                document.querySelector('#fehler').innerHTML = "Ergebnis: " + antwort.message;
+                document.querySelector('#fehler').innerHTML = "Ergebnis: " + antwort;
             }
         }
 
