@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Posters</title>
+
+    <style>
+        /* henny-penny-regular - latin */
+        @font-face {
+            font-display: swap;
+            /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+            font-family: 'Henny Penny';
+            font-style: normal;
+            font-weight: 400;
+            src: url('fonts/henny-penny-v17-latin-regular.woff2') format('woff2');
+            /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+        }
+
+        /* noto-sans-regular - latin */
+        @font-face {
+            font-display: swap;
+            /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+            font-family: 'Noto Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: url('fonts/noto-sans-v39-latin-regular.woff2') format('woff2');
+            /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+        }
+
+        /* noto-sans-800 - latin */
+        @font-face {
+            font-display: swap;
+            /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+            font-family: 'Noto Sans';
+            font-style: normal;
+            font-weight: 800;
+            src: url('fonts/noto-sans-v39-latin-800.woff2') format('woff2');
+            /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+        }
+
+        body,
+        form {
+            width: 100vw;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5em;
+            
+        }
+
+        body {
+            background: #94BBE9;
+        }
+
+        h1 {
+            font-family: 'Henny Penny';
+            font-size: 4em;
+
+        }
+
+        label {
+            font-family: 'Noto Sans';
+        }
+
+        input {
+            padding: 1em 1.5em;
+            border-radius: 20px;
+            width: 60%;
+            border: none;
+            box-shadow: 10px 10px 98px -16px rgba(0, 0, 0, 0.09) inset;
+            -webkit-box-shadow: 10px 10px 98px -16px rgba(0, 0, 0, 0.09) inset;
+            -moz-box-shadow: 10px 10px 98px -16px rgba(0, 0, 0, 0.09) inset;
+            background: #EEAECA;
+            background: linear-gradient(222deg, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Search for Movies</h1>
+
+    <form action="" method="">
+        <label for="title">Title</label>
+        <input type="text" name="title" id="title">
+        <label for="year">Jahr</label>
+        <input type="text" name="year" id="year">
+    </form>
+</body>
+
+</html>
