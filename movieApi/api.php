@@ -1,6 +1,6 @@
 <?php
-require_once 'config/config.db.php';
 
-global $mysqli;
-$sql = "SELECT * FROM";
+if ($_SERVER['REQUEST_METHOD'] === "GET"){
+    echo 'Hallo';
+}
 
