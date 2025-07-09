@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fairyzales</title>
+    <title>Fairytales</title>
     <link rel="stylesheet" href="style/style.css">
 </head>
 
 <body>
     <h1>Märchen Suchmaschine</h1>
 
-    <form action="">
+    <form action="" method="GET">
         <label for="">
             <input type="text" name="frm_search" placeholder="Suche nach ..." id="">
         </label>
@@ -20,7 +20,30 @@
     </form>
 
     <script>
-        
+        let Data = document.querySelector('form');
+        Data.addEventListener('submit', getFairy);
+
+        async function getFairy(e){
+            e.preventDefault();
+
+            let formData = new FormData(Data);
+
+            const url = "api.php";
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error(`Response status: ${response.status}`);
+                }
+
+                const json = await response.json();
+
+                console.log(json);
+
+            } catch (error) {
+                console.error(error.message);
+            }
+        }
+
     </script>
 </body>
 </html>
