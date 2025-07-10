@@ -14,3 +14,5 @@ if (!$stmt->execute()){
 
 
 return $stmt->affected_rows;
+
+?>

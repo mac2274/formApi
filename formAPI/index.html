@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>API erstellen</title>
+    <title>Registrieren</title>
     <style>
         body {
             width: fit-content;
@@ -54,13 +54,13 @@
             console.log(Object.fromEntries(formData.entries()));
 
             const response = await fetch("api.php", {
-                method: "post",
+                method: "POST",
                 body: formData,
                 accept: "application/json"
-            });
+                }
+            );
 
             let antwort = response.text();
-            console.log(antwort);
             if (antwort.status == 'ok') {
                 RegForm.innerHTML = "Erfolgreich abgesendet.";
             } else {
