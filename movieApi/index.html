@@ -13,9 +13,9 @@
 
     <form method="GET">
         <label for="title">Title</label>
-        <input type="text" name="t" id="title" >
+        <input type="text" name="t" id="title">
         <label for="id">ID</label>
-        <input type="number" name="i" id="id" >
+        <input type="number" name="i" id="id">
         <input type="submit" value="Search" name="frm_search" id="inputButton">
         <input type="reset" value="Reset" name="frm_reset" id="inputButton">
     </form>
@@ -29,7 +29,7 @@
 
             let formData = new FormData(Data)
 
-            const url = " http://www.omdbapi.com/?apikey=4dfa07d8&t=Harry%20Potter";
+            const url = " http://www.omdbapi.com/?apikey=4dfa07d8&";
             try {
                 const response = await fetch(url);
                 if (!response.ok) {
@@ -45,10 +45,6 @@
             }
 
         }
-
-
-
-
     </script>
 </body>
 

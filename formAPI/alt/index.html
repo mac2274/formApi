@@ -46,22 +46,22 @@
         // 3. Daten versenden
         // 4. Rückmeldung an User
 
-        async function RegFormSend(e) {
-            e.preventDefault();
+        async function RegFormSend(event) {
+            event.preventDefault();
+            //console.log("test2");
 
-            const formData = new FormData(RegForm);
+            var formData = new FormData(RegForm);
             console.log(Object.fromEntries(formData.entries()));
 
             const response = await fetch("api.php", {
                 method: "POST",
                 body: formData,
-                //accept: "application/json"
+                accept: "application/json"
                 }
             );
 
-            const antwort = await response.text();
-            console.log(antwort);
-            if (antwort == 'ok') {
+            let antwort = await response.text();
+            if (antwort.status == 'success') {
                 RegForm.innerHTML = "Erfolgreich abgesendet.";
             } else {
                 document.querySelector('#fehler').innerHTML = "Fehler: " + antwort.message;
@@ -69,7 +69,6 @@
         }
 
         const RegForm = document.querySelector('form');
-        //console.log(RegForm);
         RegForm.addEventListener("submit", RegFormSend);
 
     </script>
