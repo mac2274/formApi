@@ -18,7 +18,7 @@ $fairytales = [
 
 // Prüfen, ob Parameter übergeben wurde
 if (isset($_GET['search'])) {
-    $searchFor = $_GET['search'];
+    $searchInput = $_GET['search'];
 
     //gefilterte Ergebnisse sammelen
     $filteredResults = [];
@@ -35,7 +35,7 @@ if (isset($_GET['search'])) {
             Wenn nichts gefunden wird, gibt sie false zurück
 
 */
-        if (strpos($tale['story'], $searchFor) !== false) {
+        if (strpos($tale['story'], $searchInput) !== false) {
             $filteredResults[] = $tale;
         }
     }
