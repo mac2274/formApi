@@ -19,8 +19,8 @@ echo json_encode($fairytales);
 
 // Prüfen, ob Parameter übergeben wurde
 if (isset($_GET['story'])){
-    $filter = 'und';
-    $search = str_contains($tale, $searchFor);
+    $searchFor = 'und';
+    $filter = str_contains($tale, $searchFor);
 }
 
 // if (isset(($_GET['story'])) === 'Aschenputtel'){
