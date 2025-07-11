@@ -62,7 +62,7 @@
 
             let antwort = await response.text();
             if (antwort.status == 'success') {
-                RegForm.innerHTML = "Erfolgreich abgesendet.";
+                RegForm.innerHTML = "Erfolgreich registriert.";
             } else {
                 document.querySelector('#fehler').innerHTML = "Fehler: " + antwort.message;
             }
