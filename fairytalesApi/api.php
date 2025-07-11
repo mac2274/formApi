@@ -15,12 +15,35 @@ $fairytales = [
     ['story' => 'Schöne und das Biest']
 ];
 
-echo json_encode($fairytales);
 
 // Prüfen, ob Parameter übergeben wurde
-if (isset($_GET['story'])){
-    $searchFor = 'und';
-    $filter = str_contains($tale, $searchFor);
+if (isset($_GET['search'])) {
+    $searchFor = $_GET['search'];
+
+    //gefilterte Ergebnisse sammelen
+    $filteredResults = [];
+
+    // durch alle Märchendurchgehen
+    foreach ($fairytales as $tale) {
+        // Prüfen ob der Suchbegriff im Titel vorkommt
+/*         Wie strpos() funktioniert:
+
+            Die Funktion strpos() sucht nach einem String in einem anderen String
+
+            Sie gibt die Position (Index) zurück, wo der Suchbegriff beginnt
+
+            Wenn nichts gefunden wird, gibt sie false zurück
+
+*/
+        if (strpos($tale['story'], $searchFor) !== false) {
+            $filteredResults[] = $tale;
+        }
+    }
+
+    echo json_encode($filteredResults);
+    // mein falscheransatz: $filter = str_contains($fairytales, $searchFor);
+} else {
+    echo json_encode($fairytales);
 }
 
 // if (isset(($_GET['story'])) === 'Aschenputtel'){
