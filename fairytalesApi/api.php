@@ -1,5 +1,5 @@
 <?php
-header('Content-Type: application/json');
+header(header: 'Content-Type: application/json');
 
 $fairytales = [
     ['story' => 'Schneewittchen'],
@@ -16,7 +16,7 @@ $fairytales = [
 ];
 
 
-// Prüfen, ob Parameter übergeben wurde
+// Prüfen, ob Parameter übergeben wurden
 if (isset($_GET['search'])) {
     $searchInput = $_GET['search'];
 
@@ -27,11 +27,8 @@ if (isset($_GET['search'])) {
     foreach ($fairytales as $tale) {
         // Prüfen ob der Suchbegriff im Titel vorkommt
 /*         Wie strpos() funktioniert:
-
             Die Funktion strpos() sucht nach einem String in einem anderen String
-
             Sie gibt die Position (Index) zurück, wo der Suchbegriff beginnt
-
             Wenn nichts gefunden wird, gibt sie false zurück
 
 */
