@@ -14,7 +14,7 @@
         <!-- Eingabe erzeugen -->
         <form action="" method="GET">
             <label>
-                <input type="text" name="frm_search" placeholder="Suche nach ...">
+                <input type="text" name="frm_search" placeholder="Suche nach ..." id="inputfield">
             </label>
 
             <input type="submit" value="Suchen" name="search_button" id="inputButton">
@@ -27,6 +27,7 @@
 
     <script>
         let Data = document.querySelector('form');
+        let input = document.querySelector('#inputfield');
         let resultDiv = document.querySelector('#results');
 
         Data.addEventListener('submit', getFairy);
@@ -36,7 +37,8 @@
 
             let formData = new FormData(Data);
 
-            const url = "api.php?search=Aschenputtel";
+            const url = `api.php?search=${input.value}`;
+            
             try {
                 const response = await fetch(url, {
                     headers: {
