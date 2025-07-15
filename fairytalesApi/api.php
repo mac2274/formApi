@@ -1,5 +1,5 @@
 <?php
-header(header: 'Content-Type: application/json');
+header('Content-Type: application/json');
 
 $fairytales = [
     ['story' => 'Schneewittchen'],

@@ -11,17 +11,26 @@
 <body>
     <h1>Märchen Suchmaschine</h1>
 
+    <!-- Eingabe erzeugen -->
     <form action="" method="GET">
-        <label for="">
-            <input type="text" name="frm_search" placeholder="Suche nach ..." id="">
+        <label>
+            <input type="text" name="frm_search" placeholder="Suche nach ...">
         </label>
 
         <input type="submit" value="Suchen" name="search_button" id="inputButton">
-    </form>
+    </form> 
+
+    <!-- Ausgabe nach dem fetch der api -->
+    <div id="results"></div>
+
 
     <script>
         let Data = document.querySelector('form');
+        let resultDiv = document.querySelector('#results');
+
         Data.addEventListener('submit', getFairy);
+
+        console.log('Hallo');
 
         async function getFairy(e){
             e.preventDefault();
@@ -39,8 +48,15 @@
 
                 console.log(json);
 
+                //Ausgabe jetzt:
+                resultDiv.innerHTML = ''; // vorher leeren
+                json.forEach(element => {
+                    resultDiv.innerHTML += '<p >${element.story}</p>';
+                });
+
             } catch (error) {
                 console.error(error.message);
+                resultDiv.innerHTML ='<p>Fehler: ${error.message}</p>';
             }
         }
 
