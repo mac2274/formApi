@@ -5,7 +5,7 @@ header('Content-Type: application/json');
 //array
 $fruits = [
     'eastern' => ['dragonfruit', 'durian', 'jackfruit', 'lychee', 'mango'],
-    'western' => ['raspberry', 'strawberry', 'pear', 'apple'],
+    'western' => ['raspberry', 'strawberry', 'pear', 'apple', 'cherry'],
     'southern' => ['grapes', 'lemon', 'oranges']
 ];
 
