@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruits</title>
+</head>
+
+<body>
+    <h1>Where does your fruit come from?</h1>
+
+    <form method="get">
+        Type your fruit here:
+        <input type="text" name="frm_fruit" id="fruitInput" placeholder="put your fruit here">
+
+        <input type="submit" value="search" name="frm_search">
+    </form>
+
+    <script>
+        async function searchFruit(e) {
+            e.preventDefault();
+            const url = 'api.php';
+
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error(`Response status: ${response.status}`);
+                }
+
+                const json = await response.json();
+                console.log(json);
+
+                //ausgabe der daten hier:
+                
+            } catch (error) {
+                console.error(error.message);
+            }
+        }
+
+        let inputFruit = document.querySelector('#fruitInput');
+        let form = document.querySelector('form');
+        let formData = new FormData(form);
+
+        form.addEventListener('submit', searchFruit);
+
+        console.log(Object.fromEntries(formData.entries()));
+
+    </script>
+</body>
+
+</html>
