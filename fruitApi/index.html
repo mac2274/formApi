@@ -20,10 +20,14 @@
     <script>
         async function searchFruit(e) {
             e.preventDefault();
-            const url = 'api.php';
+            const url = `api.php?search=${inputFruit.value}`;
 
             try {
-                const response = await fetch(url);
+                const response = await fetch(url, {
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
                 if (!response.ok) {
                     throw new Error(`Response status: ${response.status}`);
                 }
@@ -32,7 +36,10 @@
                 console.log(json);
 
                 //ausgabe der daten hier:
-                
+                filteredResults.innerHTML = '';
+                json.forEach(element => {
+                    filteredResults.innerHTML += `<p>${element.fruit}</p>`;
+                });
             } catch (error) {
                 console.error(error.message);
             }
@@ -41,6 +48,7 @@
         let inputFruit = document.querySelector('#fruitInput');
         let form = document.querySelector('form');
         let formData = new FormData(form);
+        let filteredResults = [];
 
         form.addEventListener('submit', searchFruit);
 
