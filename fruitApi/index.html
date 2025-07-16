@@ -10,7 +10,7 @@
 <body>
     <h1>Where does your fruit come from?</h1>
 
-    <form method="get">
+    <form method="GET">
         Type your fruit here:
         <input type="text" name="frm_fruit" id="fruitInput" placeholder="put your fruit here">
 
@@ -40,7 +40,7 @@
                 //ausgabe der daten hier:
                 resultDiv.innerHTML = '';
                 json.forEach(element => {
-                    resultDiv.innerHTML += `<p>${element.region}</p>`;
+                    resultDiv.innerHTML += `<p>${element.fruit}</p>`;
                 });
             } catch (error) {
                 console.error(error.message);
