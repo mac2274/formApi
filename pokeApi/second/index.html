@@ -10,24 +10,24 @@
 <body>
     <h1>Pokémon Cards</h1>
     <div id="card-container">
-        <img src="${pokemon.image}" alt="${pokemon.name}">
+        <img src=`${element.image}` alt>
         <h2 id="pokename"></h2>
-        <p class="type">${pokemon.type}</p>
+        <p class="type"></p>
         <ul class="abilities">
             <li></li>
         </ul>
 
         <form method="GET">
             <label for="pokeSearch">
-                <input type="text" name="searchPoke" id="pokeSearch" placeholder="Search for">
+                <input type="text" name="inputPoke" id="inputPoke" placeholder="Search for">
             </label>
             <input type="submit" value="suchen" id="searchButton" name="searchButton">
         </form>
     </div>
 
     <script>
-        let searchPokemon = document.querySelector('#pokeSearch');
-        let searchBut = document.querySelector('#searchButton');
+        let inputPokemon = document.querySelector('#inputPoke');
+        let searchButton = document.querySelector('#searchButton');
         let pokeName = document.querySelector('#pokename');
 
         async function pokeLib(e) {
@@ -45,7 +45,7 @@
                 // result of search for pokemon:
                 pokeName.innerText = '';
                 json.forEach(element => {
-                    pokeName.inneText += `${element}`; 
+                    pokeName.inneText += `${element.name}`; 
                 });
             } catch (error) {
                 console.error(error.message);
