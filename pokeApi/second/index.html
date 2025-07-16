@@ -26,7 +26,7 @@
         // 1. function mit fetch für api
         async function pokeLib(e) {
             e.preventDefault();
-            const url = `https://pokeapi.co/api/v2/pokemon?${inputPokemon.value}`;
+            const url = `https://pokeapi.co/api/v2/pokemon/${inputPokemon.value}`;
             try {
                 const response = await fetch(url, {
                     headers: {
@@ -41,16 +41,15 @@
                 console.log(json);
 
         // 2. result of search for pokemon:
-                pokeName.innerText = '';
-                pokeType.innerText = '';
+                pokeType.innerHTML = '';
 
-                json.forEach(element => {
-                    pokeName.innerHTML = `<span>${element.name}</span>`;
-                    pokeType.inneText = `${elemnnt.type}`;
+                pokeName.innerHTML = `<span>${json.name}</span>`;
+                json.types.forEach(element => {
+                    pokeType.innerHTML += `${element.type.name}<br>`;
                 });
             } catch (error) {
                 console.error(error.message);
-            } Í
+            } 
         }
 
         let form = document.querySelector('form');
