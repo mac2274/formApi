@@ -17,7 +17,7 @@
         <input type="submit" value="search" name="frm_search">
     </form>
 
-    <div id="results"></div>
+    <ol id="results"></ol>
 
     <script>
         async function searchFruit(e) {
@@ -40,7 +40,8 @@
                 //ausgabe der daten hier:
                 resultDiv.innerHTML = '';
                 json.forEach(element => {
-                    resultDiv.innerHTML += `<p>${element.fruit}</p>`;
+                    resultDiv.innerHTML +=  `<li>${element.region}: `;
+                                            `<b>${element.fruit}</b>`;
                 });
             } catch (error) {
                 console.error(error.message);

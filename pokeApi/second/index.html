@@ -1,19 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Show one Pokemon</title>
 </head>
+
 <body>
-    <h1>Pokémon Karten</h1>
+    <h1>Pokémon Cards</h1>
     <div id="card-container">
         <img src="${pokemon.image}" alt="${pokemon.name}">
-            <h2>${pokemon.name}</h2>
-            <p class="type">${pokemon.type}</p>
-            <ul class="abilities">
-               <li></li>
-            </ul>
+        <h2 id="pokename"></h2>
+        <p class="type">${pokemon.type}</p>
+        <ul class="abilities">
+            <li></li>
+        </ul>
+
+        <form method="GET">
+            <label for="pokeSearch">
+                <input type="text" name="searchPoke" id="pokeSearch" placeholder="Search for">
+            </label>
+            <input type="submit" value="suchen" id="searchButton" name="searchButton">
+        </form>
     </div>
+
+    <script>
+        let searchPokemon = document.querySelector('#pokeSearch');
+        let searchBut = document.querySelector('#searchButton');
+        let pokeName = document.querySelector('#pokename');
+
+        async function pokeLib(e) {
+            e.preventDefault();
+            const url = `https://pokeapi.co/api/v2/pokemon?searchPoke=${searchPoke.value}`;
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error(`Response status: ${response.status}`);
+                }
+
+                const json = await response.json();
+                console.log(json);
+
+                // result of search for pokemon:
+                pokeName.innerText = '';
+                json.forEach(element => {
+                    pokeName.inneText += `${element}`; 
+                });
+            } catch (error) {
+                console.error(error.message);
+            } Í
+        }
+    </script>
 </body>
+
 </html>
