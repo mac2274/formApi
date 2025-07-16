@@ -23,14 +23,10 @@
     </div>
 
     <script>
-        let inputPokemon = document.querySelector('#inputPoke');
-        let searchButton = document.querySelector('#searchButton');
-        let pokeName = document.querySelector('#pokename');
-        let pokeType = document.querySelector('.type');
-
+        // 1. function mit fetch für api
         async function pokeLib(e) {
             e.preventDefault();
-            const url = `https://pokeapi.co/api/v2/pokemon`;
+            const url = `https://pokeapi.co/api/v2/pokemon?${inputPokemon.value}`;
             try {
                 const response = await fetch(url, {
                     headers: {
@@ -44,7 +40,7 @@
                 const json = await response.json();
                 console.log(json);
 
-                // result of search for pokemon:
+        // 2. result of search for pokemon:
                 pokeName.innerText = '';
                 pokeType.innerText = '';
 
@@ -56,6 +52,16 @@
                 console.error(error.message);
             } Í
         }
+
+        let form = document.querySelector('form');
+        let inputPokemon = document.querySelector('#inputPoke');
+        let searchButton = document.querySelector('#searchButton');
+        let pokeName = document.querySelector('#pokename');
+        let pokeType = document.querySelector('.type');
+
+        // 3. auslösen
+        form.addEventListener('submit', pokeLib);
+
     </script>
 </body>
 

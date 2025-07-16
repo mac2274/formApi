@@ -23,15 +23,20 @@
     <script>
         let Data = document.querySelector('form')
         Data.addEventListener('submit', getMovie);
+        let title = document.querySelector('title');
 
         async function getMovie(event) {
             event.preventDefault();
 
             let formData = new FormData(Data)
 
-            const url = " http://www.omdbapi.com/?apikey=4dfa07d8&";
+            const url = `http://www.omdbapi.com/?apikey=4dfa07d8&t=${title.value}`;
             try {
-                const response = await fetch(url);
+                const response = await fetch(url, {
+                    headers: {
+                        'Accept' : 'application/json'
+                    }
+                });
                 if (!response.ok) {
                     throw new Error(`Response status: ${response.status}`);
                 }
