@@ -40,8 +40,8 @@
                 //ausgabe der daten hier:
                 resultDiv.innerHTML = '';
                 json.forEach(element => {
-                    resultDiv.innerHTML +=  `<li>${element.region}: `;
-                                            `<b>${element.fruit}</b>`;
+                    resultDiv.innerHTML +=  `<li>region: <b>${element.region}</b><br>
+                                            fruit: <b>${element.fruit}</b></li>`;
                 });
             } catch (error) {
                 console.error(error.message);
