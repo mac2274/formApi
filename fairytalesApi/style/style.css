@@ -27,10 +27,9 @@
 
 body {
     width: 100vw;
-    height: aut100vho;
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: top;
     align-items: center;
     gap: 0.5em;
 
@@ -83,17 +82,23 @@ input {
     justify-content: end;
     height: 50%;
     margin-top: 10%;
-
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1%;
 }
 .stories {
     background: rgba(148, 187, 233, 1);
     color: #000;
     font-size: 1.5em;
-    padding: 1em 2em;
+    padding: 0.5em 1em;
     font-family: 'Noto Sans';
     border-radius: 50px;
     border: 1px solid #fff;
     width: fit-content;
     justify-self: center;
     margin-top: 2%;
+
 }

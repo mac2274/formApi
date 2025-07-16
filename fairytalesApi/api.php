@@ -43,10 +43,6 @@ if (isset($_GET['search'])) {
     echo json_encode($fairytales);
 }
 
-// if (isset(($_GET['story'])) === 'Aschenputtel'){
-//     echo 'Du hast einen Treffer.';
-// } else {
-//     echo 'Leider keinen Treffer.';
-// }
+
 
 ?>

@@ -6,7 +6,7 @@
 $fruits = [
     'eastern' => ['dragonfruit', 'durian', 'jackfruit', 'lychee', 'mango'],
     'western' => ['raspberry', 'strawberry', 'pear', 'apple', 'cherry'],
-    'southern' => ['grapes', 'lemon', 'oranges']
+    'southern' => ['grapes', 'lemon', 'oranges', 'banana']
 ];
 
 //logik

@@ -17,6 +17,8 @@
         <input type="submit" value="search" name="frm_search">
     </form>
 
+    <div id="results"></div>
+
     <script>
         async function searchFruit(e) {
             e.preventDefault();
@@ -36,9 +38,9 @@
                 console.log(json);
 
                 //ausgabe der daten hier:
-                filteredResults.innerHTML = '';
+                resultDiv.innerHTML = '';
                 json.forEach(element => {
-                    filteredResults.innerHTML += `<p>${element.fruit}</p>`;
+                    resultDiv.innerHTML += `<p>${element.region}</p>`;
                 });
             } catch (error) {
                 console.error(error.message);
@@ -48,11 +50,11 @@
         let inputFruit = document.querySelector('#fruitInput');
         let form = document.querySelector('form');
         let formData = new FormData(form);
-        let filteredResults = [];
+        let resultDiv = document.querySelector('#results');
 
         form.addEventListener('submit', searchFruit);
 
-        console.log(Object.fromEntries(formData.entries()));
+        //console.log(Object.fromEntries(formData.entries()));
 
     </script>
 </body>

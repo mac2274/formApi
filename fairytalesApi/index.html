@@ -26,19 +26,10 @@
 
 
     <script>
-        let Data = document.querySelector('form');
-        let input = document.querySelector('#inputfield');
-        let resultDiv = document.querySelector('#results');
-
-        Data.addEventListener('submit', getFairy);
-
         async function getFairy(e) {
             e.preventDefault();
-
-            let formData = new FormData(Data);
-
             const url = `api.php?search=${input.value}`;
-            
+
             try {
                 const response = await fetch(url, {
                     headers: {
@@ -50,7 +41,6 @@
                 }
 
                 const json = await response.json();
-
                 console.log(json);
 
                 //Ausgabe jetzt:
@@ -64,6 +54,15 @@
                 resultDiv.innerHTML = `<p>Fehler: ${error.message}</p>`;
             }
         }
+
+
+        let Data = document.querySelector('form');
+        let formData = new FormData(Data);
+        let input = document.querySelector('#inputfield');
+        let resultDiv = document.querySelector('#results');
+
+        Data.addEventListener('submit', getFairy);
+
 
     </script>
 </body>
