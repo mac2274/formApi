@@ -19,13 +19,13 @@ if (isset($_GET['search'])) {
         foreach ($regionFruits as $fruit) {
             if (strpos($fruit, $searchFruit) !== false) {
                 $filteredResults[] = [
+                    'message' => "Dein Ergebnis:",
                     'region' => $region,
                     'fruit' => $fruit
                 ];
             }
         }
     }
-    echo 'Dein Ergebnis:';
     echo json_encode($filteredResults);
 } else {
     // echo 'Kein Suchergebnis.';
