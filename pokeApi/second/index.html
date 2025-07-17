@@ -17,7 +17,7 @@
         <input type="submit" value="suchen" id="searchButton" name="searchButton">
     </form>
 
-    <div id="card-container">
+    <div id="card-container" style="display:flex; align-items:center; ; flex-direction:column; justify-content:center; text-align:center">
         <h2 id="pokename"></h2>
         <p class="type"></p>
     </div>
@@ -26,6 +26,7 @@
         // 1. function mit fetch für api
         async function pokeLib(e) {
             e.preventDefault();
+            //${inputPokemon.value}
             const url = `https://pokeapi.co/api/v2/pokemon/${inputPokemon.value}`;
             try {
                 const response = await fetch(url, {
@@ -38,18 +39,29 @@
                 }
 
                 const json = await response.json();
-                console.log(json);
-
-        // 2. result of search for pokemon:
+        
+                console.log(json.sprites);
+                // 2. result of search for pokemon:
                 pokeType.innerHTML = '';
-
+                // name des pokemon 
                 pokeName.innerHTML = `<span>${json.name}</span>`;
+
+                // kein array, sondern ein objekt: daher sprites - bild
+                const spriteUrl = json.sprites.other.dream_world.front_default;
+                pokeType.innerHTML += `<img src="${spriteUrl}"> <br>`;
+
+                // in das array gehen und infos auslesen - type
                 json.types.forEach(element => {
-                    pokeType.innerHTML += `${element.type.name}<br>`;
+                    pokeType.innerHTML += `<b>type: </b>${element.type.name}<br>`;
+                });
+
+                // in das array gehen und infos auslesen - abilities
+                json.abilities.forEach(element => {
+                    pokeType.innerHTML += `<b>ability:</b> ${element.ability.name}<br>`;
                 });
             } catch (error) {
                 console.error(error.message);
-            } 
+            }
         }
 
         let form = document.querySelector('form');
